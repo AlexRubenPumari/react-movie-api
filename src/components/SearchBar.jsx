@@ -4,6 +4,7 @@ import Results from './Results.jsx'
 import IconSearch from './Icons/IconSearch.jsx'
 
 export default function SearchBar ({ placeholder }) {
+  const [isFocus, setIsFocus] = useState(false)
   const [results, setResults] = useState([])
   const [query, setQuery] = useState('')
   const hasResults = !(results.length === 0 && query !== '')
@@ -17,29 +18,30 @@ export default function SearchBar ({ placeholder }) {
       })
       .catch(err => console.error(err))
   }, [query])
-  function handleClick () {
-    const input = document.querySelector('.searchBar__input')
-    input.value = ''
-    setQuery('')
-  }
 
   return (
-    <div
-      className={`searchBar ${query === '' ? '' : 'resultsDisplayed'}`}
-    >
+    <div className={`searchBar ${query === '' ? '' : 'resultsDisplayed'}`}>
       <input
+        value={query}
         className='searchBar__input'
         type='search'
         placeholder={placeholder}
         onInput={e => setQuery(e.target.value)}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => {
+          setQuery('')
+          setIsFocus(false)
+        }}
       />
       <IconSearch className='searchBar__icon' />
-      <button
-        className='searchBar__btn'
-        onClick={handleClick}
-      >
-        ×
-      </button>
+      {isFocus && (
+        <button
+          className='searchBar__btn'
+          onClick={() => setQuery('')}
+        >
+          ×
+        </button>
+      )}
       <Results resultsList={results} hasResults={hasResults} />
     </div>
   )
