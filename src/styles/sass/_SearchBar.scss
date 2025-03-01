@@ -1,0 +1,28 @@
+.searchBar {
+  position: relative;
+
+  &.resultsDisplayed {
+      border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
+      background-color: var(--co-secondary-20);
+  }
+  &__input {
+    width: 100%;
+    height: calc(var(--rounded-xl) * 2);
+    padding: 0 4em;
+    position: relative;
+    z-index: 20;
+    border-radius: var(--rounded-xl);
+
+    &.resultsDisplayed {
+      border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
+    }
+  }
+  &__icon {
+    width: 1.65em;
+    position: absolute;
+    z-index: 30;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 1.5em;
+  }
+}

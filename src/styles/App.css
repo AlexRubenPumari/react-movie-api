@@ -1,0 +1,119 @@
+.poster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .poster:hover .poster__imgContainer {
+    transform: scale(1.1);
+  }
+}
+.poster__title {
+  text-align: center;
+  color: hsl(0, 0%, 92%);
+}
+.poster__imgContainer {
+  position: relative;
+  margin-bottom: 0.8rem;
+  transition: 200ms transform;
+}
+.poster__shadow {
+  width: 100%;
+  height: 2em;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to top, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 3%) 20%, rgba(0, 0, 0, 0) 100%);
+}
+.poster__img {
+  width: 10rem;
+  aspect-ratio: 2/3;
+  border-radius: var(--rounded-sm);
+}
+
+.searchBar {
+  position: relative;
+}
+.searchBar.resultsDisplayed {
+  border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
+  background-color: var(--co-secondary-20);
+}
+.searchBar__input {
+  width: 100%;
+  height: calc(var(--rounded-xl) * 2);
+  padding: 0 4em;
+  position: relative;
+  z-index: 20;
+  border-radius: var(--rounded-xl);
+}
+.searchBar__input.resultsDisplayed {
+  border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
+}
+.searchBar__icon {
+  width: 1.65em;
+  position: absolute;
+  z-index: 30;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 1.5em;
+}
+
+.results {
+  width: 100%;
+  position: absolute;
+  border-radius: 0 0 var(--rounded-xl) var(--rounded-xl);
+  z-index: 10;
+  background-color: var(--co-secondary-20);
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  padding: 0.4rem 2rem;
+  transition: 200ms background-color;
+}
+.result:hover {
+  background-color: var(--co-secondary-30);
+  cursor: pointer;
+}
+.result__img {
+  width: 2rem;
+  aspect-ratio: 2/3;
+}
+
+.pageManager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.posterContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 3rem 1rem;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.btnCta {
+  width: 10rem;
+  border-radius: 1rem/50%;
+  background-color: var(--co-secondary-20);
+}
+@media (hover: hover) {
+  .btnCta:hover {
+    background-color: var(--co-secondary-30);
+  }
+}
+
+/*# sourceMappingURL=App.css.map */
