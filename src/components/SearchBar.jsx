@@ -6,6 +6,7 @@ import IconSearch from './Icons/IconSearch.jsx'
 export default function SearchBar ({ placeholder }) {
   const [results, setResults] = useState([])
   const [query, setQuery] = useState('')
+  const hasResults = !(results.length === 0 && query !== '')
   useEffect(() => {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=ad42e8664bda3dbd31a5a27424023da8&query=${query}&include_adult=true&language=${LANG_QUERY}&page=1`
     fetch(url)
@@ -28,7 +29,7 @@ export default function SearchBar ({ placeholder }) {
         onInput={e => setQuery(e.target.value)}
       />
       <IconSearch className='searchBar__icon' />
-      <Results resultsList={results} hasResults={!(results.length === 0 && query !== '')} />
+      <Results resultsList={results} hasResults={hasResults} />
     </div>
   )
 }

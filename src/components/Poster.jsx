@@ -1,7 +1,8 @@
 import defaultImage from '../assets/defaultImg220x330.jpg'
+import { PREFIX_URL_IMG_342 } from '../constants.js'
 
 export default function Poster ({ title, pathImg }) {
-  const path = pathImg ? `https://image.tmdb.org/t/p/w342${pathImg}` : defaultImage
+  const path = pathImg ? `${PREFIX_URL_IMG_342}${pathImg}` : defaultImage
   return (
     <div className='poster'>
       <div className='poster__imgContainer'>
