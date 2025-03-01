@@ -11,7 +11,6 @@
 }
 .poster__title {
   text-align: center;
-  color: hsl(0, 0%, 92%);
 }
 .poster__imgContainer {
   position: relative;
@@ -57,6 +56,18 @@
   transform: translateY(-50%);
   top: 50%;
   left: 1.5em;
+}
+.searchBar__btn {
+  padding: var(--p-m);
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  z-index: 20;
+  transform: translateY(-50%);
+  transition: color 200ms;
+}
+.searchBar__btn:hover {
+  color: var(--co-secondary-10);
 }
 
 .results {

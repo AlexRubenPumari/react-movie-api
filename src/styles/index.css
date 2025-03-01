@@ -13,6 +13,10 @@
   --co-secondary-10: var(--co-black);
   --co-secondary-20: var(--co-black-10);
   --co-secondary-30: var(--co-black-20);
+
+  --p-m: .6rem;
+  --p-l: .8rem;
+  --p-xl: 1rem;
 }
 
 * {

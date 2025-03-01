@@ -17,6 +17,11 @@ export default function SearchBar ({ placeholder }) {
       })
       .catch(err => console.error(err))
   }, [query])
+  function handleClick () {
+    const input = document.querySelector('.searchBar__input')
+    input.value = ''
+    setQuery('')
+  }
 
   return (
     <div
@@ -29,6 +34,12 @@ export default function SearchBar ({ placeholder }) {
         onInput={e => setQuery(e.target.value)}
       />
       <IconSearch className='searchBar__icon' />
+      <button
+        className='searchBar__btn'
+        onClick={handleClick}
+      >
+        ×
+      </button>
       <Results resultsList={results} hasResults={hasResults} />
     </div>
   )

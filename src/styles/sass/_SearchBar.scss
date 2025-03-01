@@ -1,16 +1,17 @@
+@use './config.scss' as c;
 .searchBar {
   position: relative;
 
   &.resultsDisplayed {
-      border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
-      background-color: var(--co-secondary-20);
+    border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
+    background-color: var(--co-secondary-20);
   }
   &__input {
     width: 100%;
     height: calc(var(--rounded-xl) * 2);
     padding: 0 4em;
     position: relative;
-    z-index: 20;
+    z-index: c.$index-20;
     border-radius: var(--rounded-xl);
 
     &.resultsDisplayed {
@@ -20,9 +21,21 @@
   &__icon {
     width: 1.65em;
     position: absolute;
-    z-index: 20;
+    z-index: c.$index-20;
     transform: translateY(-50%);
     top: 50%;
     left: 1.5em;
+  }
+  &__btn {
+    padding: var(--p-m);
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    z-index: c.$index-20;
+    transform: translateY(-50%);
+    transition: color 200ms;
+    &:hover {
+      color: var(--co-secondary-10);
+    }
   }
 }
