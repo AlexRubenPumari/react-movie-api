@@ -53,7 +53,7 @@
 .searchBar__icon {
   width: 1.65em;
   position: absolute;
-  z-index: 30;
+  z-index: 20;
   transform: translateY(-50%);
   top: 50%;
   left: 1.5em;
@@ -71,12 +71,19 @@
   display: flex;
   align-items: center;
   gap: 1.3rem;
-  padding: 0.4rem 2rem;
+  padding: 0.5rem 2rem;
   transition: 200ms background-color;
 }
 .result:hover {
   background-color: var(--co-secondary-30);
   cursor: pointer;
+}
+.result.simple {
+  padding: 0.8rem 2rem;
+  cursor: default;
+}
+.result.simple:hover {
+  background-color: initial;
 }
 .result__img {
   width: 2rem;

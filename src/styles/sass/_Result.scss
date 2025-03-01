@@ -2,11 +2,18 @@
   display: flex;
   align-items: center;
   gap: 1.3rem;
-  padding: .4rem 2rem;
+  padding: .5rem 2rem;
   transition: 200ms background-color;
   &:hover {
     background-color: var(--co-secondary-30);
     cursor: pointer;
+  }
+  &.simple {
+    padding: .8rem 2rem;
+    cursor: default;
+    &:hover {
+      background-color: initial;
+    }
   }
   &__img {
     width: 2rem;
