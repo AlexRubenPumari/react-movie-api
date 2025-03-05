@@ -1,3 +1,20 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 6rem;
+  padding: 0 1rem;
+  background-color: var(--co-terciary-40);
+  user-select: none;
+}
+.header__logo {
+  width: 3.6rem;
+}
+.header__btn {
+  display: flex;
+  gap: 1rem;
+}
+
 .poster {
   display: flex;
   flex-direction: column;
@@ -68,6 +85,38 @@
 }
 .searchBar__btn:hover {
   color: var(--co-secondary-10);
+}
+
+.toggleBtn {
+  width: 1.05em;
+  height: 0.5em;
+  position: relative;
+  border-radius: 0.25em;
+  font-size: 2.5rem;
+  cursor: pointer;
+  outline: 5px solid;
+  outline-offset: -1px;
+  background-color: currentColor;
+  transition: 200ms background-color;
+}
+.toggleBtn__thumb {
+  width: 0.5em;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  transition: 200ms transform;
+  background-color: var(--co-secondary-20);
+}
+.toggleBtn.on {
+  color: var(--co-primary-10);
+}
+.toggleBtn.on .toggleBtn__thumb {
+  transform: translateX(calc(1.05em - 100%));
+}
+.toggleBtn.off {
+  color: var(--co-secondary-30);
+}
+.toggleBtn.off .toggleBtn__thumb {
+  transform: translateX(0);
 }
 
 .results {

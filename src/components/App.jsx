@@ -1,6 +1,7 @@
 import '../styles/App.css'
 import { useState, useEffect } from 'react'
 import { LANG_QUERY } from '../constants.js'
+import Header from './Header.jsx'
 import PosterContainer from './PosterContainer'
 import PageManager from './PageManager.jsx'
 import SearchBar from './SearchBar.jsx'
@@ -22,11 +23,14 @@ export default function App () {
       })
   }, [currentPage])
   return (
-    <main className='mainContainer'>
-      <SearchBar placeholder='Buscar película...' />
-      <PageManager page={currentPage} updatePage={setCurrentPage} />
-      <PosterContainer movies={popularMovies} />
-      <PageManager page={currentPage} updatePage={setCurrentPage} />
-    </main>
+    <>
+      <Header />
+      <main className='mainContainer'>
+        <SearchBar placeholder='Buscar película...' />
+        <PageManager page={currentPage} updatePage={setCurrentPage} />
+        <PosterContainer movies={popularMovies} />
+        <PageManager page={currentPage} updatePage={setCurrentPage} />
+      </main>
+    </>
   )
 }

@@ -6,13 +6,16 @@
   --co-black-10: hsl(0, 0%, 16%);
   --co-black-20: hsl(0, 0%, 25%);
   --co-white: hsl(0, 0%, 90%);
+  --co-white-10: hsl(0, 0%, 80%);
   --co-white-20: hsl(0, 0%, 76%);
+  --co-ligth-blue: hsl(199, 82%, 80%);
 
   --co-primary-10: var(--co-white); 
   --co-primary-20: var(--co-white-20);
   --co-secondary-10: var(--co-black);
   --co-secondary-20: var(--co-black-10);
   --co-secondary-30: var(--co-black-20);
+  --co-terciary-40: var(--co-secondary-20);
 
   --p-m: .6rem;
   --p-l: .8rem;
@@ -81,6 +84,9 @@ form, input, textarea, select, button, label, fieldset, button {
   hyphens: auto;
   display: block;
   color: inherit;
+}
+label {
+  background-color: inherit;
 }
 input[type="search"]::-webkit-search-cancel-button {
   display: none;

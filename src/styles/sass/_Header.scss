@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 6rem;
+  padding: 0 1rem;
+  background-color: var(--co-terciary-40);
+  user-select: none;
+  &__logo {
+    width: 3.6rem;
+  }
+  &__btn {
+    display: flex;
+    gap: 1rem;
+  }
+}
