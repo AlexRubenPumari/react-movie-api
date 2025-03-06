@@ -1,5 +1,5 @@
 import DEFAULT_IMG from '../assets/defaultImg220x330.jpg'
-import { PREFIX_URL_IMG_342 } from '../constants.js'
+import { PREFIX_URL_IMG_342 } from '../config/constants.js'
 
 export default function Poster ({ title, pathImg }) {
   const path = pathImg ? `${PREFIX_URL_IMG_342}${pathImg}` : DEFAULT_IMG

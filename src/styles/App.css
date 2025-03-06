@@ -193,6 +193,7 @@
 }
 .btnCta[disabled] {
   color: var(--co-white-30);
+  cursor: default;
 }
 .btnCta[disabled]:hover {
   background-color: var(--co-secondary-20);

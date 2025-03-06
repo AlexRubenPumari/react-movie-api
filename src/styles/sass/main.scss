@@ -34,6 +34,7 @@
   }
   &[disabled] {
     color: var(--co-white-30);
+    cursor: default;
     &:hover {
       background-color: var(--co-secondary-20);
     }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { LANG_QUERY } from '../constants.js'
+import { LANG_QUERY } from '../config/constants.js'
 import Results from './Results.jsx'
 import IconSearch from './Icons/IconSearch.jsx'
 

@@ -1,10 +1,11 @@
 import '../styles/App.css'
 import { useState, useEffect } from 'react'
-import { LANG_QUERY } from '../constants.js'
+import { LANG_QUERY } from '../config/constants.js'
 import Header from './Header.jsx'
 import PosterContainer from './PosterContainer'
 import PageManager from './PageManager.jsx'
 import SearchBar from './SearchBar.jsx'
+import BackgroundParticles from './BackgroundParticles.jsx'
 
 export default function App () {
   const [currentPage, setCurrentPage] = useState(1)
@@ -31,6 +32,7 @@ export default function App () {
         <PosterContainer movies={popularMovies} />
         <PageManager page={currentPage} updatePage={setCurrentPage} />
       </main>
+      <BackgroundParticles />
     </>
   )
 }
