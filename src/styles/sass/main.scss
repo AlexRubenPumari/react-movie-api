@@ -2,20 +2,17 @@
 @use './Header.scss';
 @use './Poster.scss';
 @use './SearchBar.scss';
+@use './PageManager.scss';
 @use './ToggleButton.scss';
 @use './Results.scss';
 @use './Result.scss';
 
-.pageManager {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1rem;
-}
+
 .posterContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
   gap: 3rem 1rem;
+  min-height: 100vh;
 }
 .mainContainer {
   display: flex;
@@ -33,6 +30,12 @@
   @media (hover: hover) {
     &:hover {
       background-color: var(--co-secondary-30);
+    }
+  }
+  &[disabled] {
+    color: var(--co-white-30);
+    &:hover {
+      background-color: var(--co-secondary-20);
     }
   }
 }

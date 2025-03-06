@@ -1,0 +1,14 @@
+.pageManager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  &__container {
+    display: flex;
+    gap: .5em;
+  }
+  &__input {
+    width: 2rem;
+    text-align: center;
+  }
+}

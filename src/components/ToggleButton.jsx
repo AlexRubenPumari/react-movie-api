@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export default function ToggleButton ({ callbackOn, callbackOff }) {
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(true)
   const toggleClassName = `toggleBtn ${toggle ? 'on' : 'off'}`
   useEffect(() => {
     if (toggle) {
