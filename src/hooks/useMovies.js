@@ -9,5 +9,6 @@ export function useMovies () {
       .then(movies => setPopularMovies(movies))
       .catch(error => console.log(error))
   }, [currentPage])
+
   return { currentPage, popularMovies, setCurrentPage }
 }

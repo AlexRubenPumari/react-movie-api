@@ -1,8 +1,11 @@
 import LOGO70x70 from '../assets/logo_70x70.jpg'
 import ToggleButton from './ToggleButton.jsx'
-import { toggleDarkMode } from '../logic/darkMode.js'
+import { useContext } from 'react'
+import { ThemeContext } from '../contexts/theme'
 
 export default function Header () {
+  const { setLightTheme, setDarkTheme } = useContext(ThemeContext)
+
   return (
     <header className='header'>
       <a href='#' className='header__logo' tabIndex={-1}>
@@ -11,8 +14,8 @@ export default function Header () {
       <div className='header__btn'>
         <label>Modo oscuro</label>
         <ToggleButton
-          callbackOn={() => toggleDarkMode(true)}
-          callbackOff={() => toggleDarkMode(false)}
+          callbackOn={() => setDarkTheme(true)}
+          callbackOff={() => setLightTheme(false)}
         />
       </div>
     </header>
