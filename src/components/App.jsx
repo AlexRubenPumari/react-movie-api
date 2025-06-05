@@ -8,9 +8,18 @@ import SearchBar from './SearchBar'
 import BackgroundParticles from './BackgroundParticles'
 
 export default function App () {
-  const { currentPage, popularMovies, setCurrentPage } = useMovies()
   return (
     <ThemeProvider>
+      <HomePage />
+      <BackgroundParticles />
+    </ThemeProvider>
+  )
+}
+function HomePage () {
+  const { currentPage, popularMovies, setCurrentPage } = useMovies()
+
+  return (
+    <>
       <Header />
       <main className='mainContainer'>
         <SearchBar placeholder='Buscar película...' />
@@ -32,7 +41,6 @@ export default function App () {
           MAX={50}
         />
       </main>
-      <BackgroundParticles />
-    </ThemeProvider>
+    </>
   )
 }
