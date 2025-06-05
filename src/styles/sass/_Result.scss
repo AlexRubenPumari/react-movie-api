@@ -5,7 +5,8 @@
   padding: .5rem 2rem;
   transition: 200ms background-color;
   &:hover {
-    background-color: var(--co-secondary-30);
+    background-color: var(--co-highlight-light);
+    color: var(--co-gray-900);
     cursor: pointer;
   }
   &.simple {

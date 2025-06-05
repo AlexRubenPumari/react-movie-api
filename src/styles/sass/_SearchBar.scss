@@ -4,7 +4,7 @@
 
   &.resultsDisplayed {
     border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
-    background-color: var(--co-secondary-20);
+    background-color: var(--co-primary-30);
   }
   &__input {
     width: 100%;
@@ -13,10 +13,6 @@
     position: relative;
     z-index: c.$index-20;
     border-radius: var(--rounded-xl);
-
-    &.resultsDisplayed {
-      border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
-    }
 
     &::placeholder {
       color: var(--co-text-20)

@@ -69,11 +69,11 @@ input {
     box-shadow: 0 0 0 2px var(--co-highlight), 0 0 0 4px var(--co-highlight-light);
   }
 }
-label {
-  background-color: inherit;
-}
 input[type="search"]::-webkit-search-cancel-button {
   display: none;
+}
+label {
+  background-color: inherit;
 }
 *::placeholder {
   color: var(--co-primary-20);
