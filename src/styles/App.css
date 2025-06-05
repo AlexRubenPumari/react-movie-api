@@ -342,6 +342,25 @@ body {
   aspect-ratio: 2/3;
 }
 
+.Scrollbar {
+  /* Estado hover del pulgar del scrollbar */
+}
+.Scrollbar::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar vertical */
+  height: 12px; /* Altura del scrollbar horizontal */
+}
+.Scrollbar::-webkit-scrollbar-track {
+  background: var(--co-primary-10); /* Fondo de la pista del scrollbar */
+}
+.Scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--co-text-20); /* Color del "pulgar" del scrollbar */
+  border-radius: var(--rounded-sm); /* Bordes redondeados del pulgar */
+  border: 3px solid var(--co-primary-10); /* Borde que coincide con el fondo para el efecto "flotante" */
+}
+.Scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--co-text-10); /* Color del pulgar al pasar el ratón */
+}
+
 .posterContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
