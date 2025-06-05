@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import Results from './Results.jsx'
-import IconSearch from './Icons/IconSearch.jsx'
 import { useQuery } from '../hooks/useQuery.js'
+import ListOfResults from './ListOfResults.jsx'
+import IconSearch from './Icons/IconSearch.jsx'
 
 export default function SearchBar ({ placeholder }) {
   const [hasFocus, setHasFocus] = useState(false)
-  const { query, setQuery, results } = useQuery()
+  const { query, setQuery, results, isLoading } = useQuery()
 
   return (
     <div className={`searchBar ${query === '' ? '' : 'resultsDisplayed'}`}>
@@ -27,7 +27,9 @@ export default function SearchBar ({ placeholder }) {
           ×
         </button>
       )}
-      {query && <Results results={results} />}
+      {query !== '' && (
+        <ListOfResults results={results} isLoading={isLoading} />
+      )}
     </div>
   )
 }

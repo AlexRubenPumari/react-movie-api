@@ -64,8 +64,8 @@ blockquote:before, blockquote:after, q:before, q:after {
 }
 
 ::selection {
-  background-color: var(--co-primary-10);
-  color: var(--co-secondary-10);
+  background-color: var(--co-accent-light);
+  color: var(--co-text-10);
 }
 
 form, input, textarea, select, button, label, fieldset, button {
@@ -211,10 +211,10 @@ body {
   transition: 200ms transform;
 }
 .poster__shadow {
-  width: 110%;
   height: 4em;
   position: absolute;
   left: -1px;
+  right: -1px;
   bottom: -1px;
   background: linear-gradient(to top, var(--co-primary-10) 0%, var(--co-primary-10) 20%, transparent 100%);
 }

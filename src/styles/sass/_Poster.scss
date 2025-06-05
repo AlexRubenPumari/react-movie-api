@@ -21,10 +21,10 @@
   }
 
   &__shadow {
-    width: 110%;
     height: 4em;
     position: absolute;
     left: -1px;
+    right: -1px;
     bottom: -1px;
     background: linear-gradient(
       to top,
