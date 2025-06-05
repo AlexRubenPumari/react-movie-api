@@ -10,7 +10,7 @@ export default function getConfigParticles (theme) {
     fpsLimit: 30,
     particles: {
       number: {
-        value: 200,
+        value: 400,
         density: {
           enable: true,
           area: 1000
@@ -18,13 +18,13 @@ export default function getConfigParticles (theme) {
       },
       // particles color
       color: {
-        value: theme === THEME.DARK ? '#fff' : '#ff0000'
+        value: theme === THEME.DARK ? '#fff' : 'hsl(200, 25%, 35%)'
       },
       shape: {
         type: 'circle'
       },
       opacity: {
-        value: { min: 0.2, max: 0.8 },
+        value: { min: theme === THEME.DARK ? 0.2 : 0.4, max: 0.8 },
         animation: {
           enable: true,
           speed: 2

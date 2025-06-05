@@ -17,6 +17,10 @@
     &.resultsDisplayed {
       border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
     }
+
+    &::placeholder {
+      color: var(--co-text-20)
+    }
   }
   &__icon {
     width: 1.65em;
@@ -34,8 +38,6 @@
     z-index: c.$index-20;
     transform: translateY(-50%);
     transition: color 200ms;
-    &:hover {
-      color: var(--co-secondary-10);
-    }
+    background-color: transparent;
   }
 }

@@ -1,37 +1,4 @@
-:root {
-  --rounded-sm: .4em;
-  --rounded-xl: 1.3em;
-  --co-black: hsl(0, 0%, 3%);
-  --co-black-10: hsl(0, 0%, 16%);
-  --co-black-20: hsl(0, 0%, 25%);
-  --co-white: hsl(0, 0%, 90%);
-  --co-white-10: hsl(0, 0%, 85%);
-  --co-white-20: hsl(0, 0%, 76%);
-  --co-white-30: hsl(0, 0%, 60%);
-  --co-ligth-blue: hsl(199, 82%, 80%);
-  --p-m: .6rem;
-  --p-l: .8rem;
-  --p-xl: 1rem;
-}
-
-:root[data-scheme=light] {
-  --co-primary-10: var(--co-black);
-  --co-primary-20: var(--co-black-20);
-  --co-secondary-10: var(--co-white);
-  --co-secondary-20: var(--co-white-10);
-  --co-secondary-30: var(--co-white-20);
-  --co-terciary-40: var(--co-ligth-blue);
-}
-
-:root[data-scheme=dark] {
-  --co-primary-10: var(--co-white);
-  --co-primary-20: var(--co-white-20);
-  --co-secondary-10: var(--co-black);
-  --co-secondary-20: var(--co-black-10);
-  --co-secondary-30: var(--co-black-20);
-  --co-terciary-40: var(--co-secondary-20);
-}
-
+@charset "UTF-8";
 * {
   margin: 0;
   border: 0;
@@ -102,12 +69,21 @@ blockquote:before, blockquote:after, q:before, q:after {
 }
 
 form, input, textarea, select, button, label, fieldset, button {
-  background-color: var(--co-secondary-30);
   font-family: inherit;
   font-size: inherit;
   hyphens: auto;
   display: block;
   color: inherit;
+}
+
+input {
+  background-color: var(--co-primary-30);
+  border: 1px solid var(--co-border);
+}
+input:focus {
+  outline: none;
+  border-color: var(--co-highlight);
+  box-shadow: 0 0 0 2px var(--co-highlight), 0 0 0 4px var(--co-highlight-light);
 }
 
 label {
@@ -127,7 +103,7 @@ button {
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  transition: 200ms background-color;
+  transition: 200ms background-color, 200ms color;
 }
 
 table, tr, td {
@@ -145,8 +121,8 @@ body {
   min-height: 100vh;
   font-size: 100%;
   font-family: Verdana, Tahoma, sans-serif;
-  color: var(--co-primary-10);
-  background-color: var(--co-secondary-10);
+  color: var(--co-text-10);
+  background-color: var(--co-primary-10);
   line-height: 1.4em;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
@@ -158,13 +134,53 @@ body {
   z-index: -1;
 }
 
+:root {
+  --rounded-sm: .4em;
+  --rounded-xl: 1.3em;
+  --co-gray-900: hsl(220, 5%, 15%); /* Gris oscuro casi negro */
+  --co-gray-700: hsl(220, 4%, 30%); /* Gris medio oscuro */
+  --co-gray-500: hsl(220, 3%, 50%); /* Gris medio */
+  --co-gray-300: hsl(220, 5%, 75%); /* Gris claro */
+  --co-gray-100: hsl(220, 10%, 95%); /* Gris muy claro casi blanco */
+  /* Color de Acento (puedes ajustar el tono y la saturación) */
+  --co-accent: hsl(200, 80%, 50%); /* Un azul vibrante */
+  --co-accent-light: hsl(200, 80%, 70%); /* Un azul más claro para estados hover/active */
+  --co-accent-dark: hsl(200, 80%, 30%); /* Un azul más oscuro para contraste */
+  --p-m: .6rem;
+  --p-l: .8rem;
+  --p-xl: 1rem;
+}
+
+:root[data-scheme=light] {
+  --co-primary-10: var(--co-gray-100); /* Fondo principal claro */
+  --co-primary-20: var(--co-gray-300); /* Elementos de fondo secundarios (tarjetas, secciones) */
+  --co-primary-30: var(--co-gray-100);
+  --co-text-10: var(--co-gray-900); /* Texto principal oscuro */
+  --co-text-20: var(--co-gray-700); /* Texto secundario/descriptivo */
+  --co-border: var(--co-gray-500); /* Bordes y líneas divisorias */
+  --co-highlight: var(--co-accent); /* Color de acento principal (botones, enlaces) */
+  --co-highlight-light: var(--co-accent-light); /* Color de acento para hover/active */
+}
+
+:root[data-scheme=dark] {
+  --co-primary-10: var(--co-gray-900); /* Fondo principal oscuro */
+  --co-primary-20: var(--co-gray-700); /* Elementos de fondo secundarios */
+  --co-primary-30: var(--co-gray-700);
+  --co-text-10: var(--co-gray-100); /* Texto principal claro */
+  --co-text-20: var(--co-gray-300); /* Texto secundario/descriptivo */
+  --co-border: var(--co-gray-500); /* Bordes y líneas divisorias */
+  --co-highlight: var(--co-accent); /* Color de acento principal */
+  --co-highlight-light: var(--co-accent-light); /* Color de acento para hover/active */
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 6rem;
   padding: 0 1rem;
-  background-color: var(--co-terciary-40);
+  background-color: var(--co-primary-10);
+  border-bottom: 1px solid var(--co-border);
   user-select: none;
 }
 .header__logo {
@@ -195,12 +211,12 @@ body {
   transition: 200ms transform;
 }
 .poster__shadow {
-  width: 100%;
-  height: 2em;
+  width: 110%;
+  height: 4em;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  background: linear-gradient(to top, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 3%) 20%, rgba(0, 0, 0, 0) 100%);
+  left: -1px;
+  bottom: -1px;
+  background: linear-gradient(to top, var(--co-primary-10) 0%, var(--co-primary-10) 20%, transparent 100%);
 }
 .poster__img {
   width: 10rem;
@@ -226,6 +242,9 @@ body {
 .searchBar__input.resultsDisplayed {
   border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
 }
+.searchBar__input::placeholder {
+  color: var(--co-text-20);
+}
 .searchBar__icon {
   width: 1.65em;
   position: absolute;
@@ -242,9 +261,7 @@ body {
   z-index: 20;
   transform: translateY(-50%);
   transition: color 200ms;
-}
-.searchBar__btn:hover {
-  color: var(--co-secondary-10);
+  background-color: transparent;
 }
 
 .pageManager {
@@ -272,23 +289,22 @@ body {
   outline: 5px solid;
   outline-offset: -1px;
   background-color: currentColor;
-  transition: 200ms background-color;
 }
 .toggleBtn__thumb {
   width: 0.5em;
   aspect-ratio: 1/1;
   border-radius: 50%;
   transition: 200ms transform;
-  background-color: var(--co-secondary-20);
+  background-color: var(--co-gray-100);
 }
 .toggleBtn.on {
-  color: var(--co-primary-10);
+  color: var(--co-highlight);
 }
 .toggleBtn.on .toggleBtn__thumb {
   transform: translateX(calc(1.05em - 100%));
 }
 .toggleBtn.off {
-  color: var(--co-secondary-30);
+  color: var(--co-gray-500);
 }
 .toggleBtn.off .toggleBtn__thumb {
   transform: translateX(0);
@@ -344,19 +360,18 @@ body {
 .btnCta {
   width: 10rem;
   border-radius: 1rem/50%;
-  background-color: var(--co-secondary-20);
+  background-color: var(--co-highlight);
+  color: var(--co-gray-100);
 }
 @media (hover: hover) {
   .btnCta:hover {
-    background-color: var(--co-secondary-30);
+    background-color: var(--co-highlight-light);
   }
 }
 .btnCta[disabled] {
-  color: var(--co-white-30);
-  cursor: default;
-}
-.btnCta[disabled]:hover {
-  background-color: var(--co-secondary-20);
+  color: var(--co-gray-300);
+  cursor: not-allowed;
+  background-color: var(--co-gray-500);
 }
 
 /*# sourceMappingURL=App.css.map */

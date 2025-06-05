@@ -4,7 +4,8 @@
   justify-content: space-between;
   min-height: 6rem;
   padding: 0 1rem;
-  background-color: var(--co-terciary-40);
+  background-color: var(--co-primary-10);
+  border-bottom: 1px solid var(--co-border);
   user-select: none;
   &__logo {
     width: 3.6rem;

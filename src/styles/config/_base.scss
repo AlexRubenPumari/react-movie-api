@@ -54,12 +54,20 @@ blockquote:before, blockquote:after, q:before, q:after {
   color:var(--co-secondary-10);
 }
 form, input, textarea, select, button, label, fieldset, button {
-  background-color: var(--co-secondary-30);
   font-family: inherit;
   font-size: inherit;
   hyphens: auto;
   display: block;
   color: inherit;
+}
+input {
+  background-color: var(--co-primary-30);
+  border: 1px solid var(--co-border);
+  &:focus {
+    outline: none;
+    border-color: var(--co-highlight);
+    box-shadow: 0 0 0 2px var(--co-highlight), 0 0 0 4px var(--co-highlight-light);
+  }
 }
 label {
   background-color: inherit;
@@ -75,7 +83,7 @@ button {
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  transition: 200ms background-color;
+  transition: 200ms background-color, 200ms color;
 }
 table, tr, td {
   border-collapse: collapse;
@@ -90,8 +98,8 @@ body {
   min-height:100vh;
   font-size: 100%;
   font-family: Verdana, Tahoma, sans-serif;
-  color: var(--co-primary-10);
-  background-color: var(--co-secondary-10);
+  color: var(--co-text-10);
+  background-color: var(--co-primary-10);
   line-height: 1.4em;
   font-smooth: always;
   -webkit-font-smoothing:antialiased;

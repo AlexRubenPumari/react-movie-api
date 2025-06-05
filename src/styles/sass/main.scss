@@ -1,11 +1,11 @@
-@use '../config/config.scss';
-@use './Header.scss';
-@use './Poster.scss';
-@use './SearchBar.scss';
-@use './PageManager.scss';
-@use './ToggleButton.scss';
-@use './Results.scss';
-@use './Result.scss';
+@use '../config/config';
+@use './Header';
+@use './Poster';
+@use './SearchBar';
+@use './PageManager';
+@use './ToggleButton';
+@use './Results';
+@use './Result';
 
 
 .posterContainer {
@@ -25,18 +25,16 @@
 .btnCta {
   width: 10rem;
   border-radius: 1rem / 50%;
-  background-color: var(--co-secondary-20);
-
+  background-color: var(--co-highlight);
+  color: var(--co-gray-100);
   @media (hover: hover) {
     &:hover {
-      background-color: var(--co-secondary-30);
+      background-color: var(--co-highlight-light);
     }
   }
   &[disabled] {
-    color: var(--co-white-30);
-    cursor: default;
-    &:hover {
-      background-color: var(--co-secondary-20);
-    }
+    color: var(--co-gray-300);
+    cursor: not-allowed;
+    background-color: var(--co-gray-500);
   }
 }

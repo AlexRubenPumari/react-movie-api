@@ -21,16 +21,16 @@
   }
 
   &__shadow {
-    width: 100%;
-    height: 2em;
+    width: 110%;
+    height: 4em;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: -1px;
+    bottom: -1px;
     background: linear-gradient(
       to top,
-      hsl(0, 0%, 3%) 0%,
-      hsl(0, 0%, 3%) 20%,
-      rgba(0, 0, 0, 0) 100%
+      var(--co-primary-10) 0%,
+      var(--co-primary-10) 20%,
+      transparent 100%
     );
   }
 
@@ -40,5 +40,3 @@
     border-radius: var(--rounded-sm);
   }
 }
-
-

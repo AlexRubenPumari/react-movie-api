@@ -10,22 +10,21 @@
   outline: 5px solid;
   outline-offset: -1px;
   background-color: currentColor;
-  transition: 200ms background-color;
   &__thumb {
     width: $unit;
     aspect-ratio: 1/1;
     border-radius: 50%;
     transition: 200ms transform;
-    background-color: var(--co-secondary-20);
+    background-color: var(--co-gray-100);
   }
   &.on {
-    color: var(--co-primary-10);
+    color: var(--co-highlight);
     .toggleBtn__thumb {
       transform: translateX(calc($width - 100%));
     }
   }
   &.off {
-    color: var(--co-secondary-30);
+    color: var(--co-gray-500);
     .toggleBtn__thumb {
       transform: translateX(0);
     }

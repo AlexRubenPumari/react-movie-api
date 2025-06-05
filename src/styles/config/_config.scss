@@ -1,0 +1,48 @@
+@use './base';
+@use './particles';
+
+:root {
+  --rounded-sm: .4em;
+  --rounded-xl: 1.3em;
+
+  --co-gray-900: hsl(220, 5%, 15%);   /* Gris oscuro casi negro */
+  --co-gray-700: hsl(220, 4%, 30%);   /* Gris medio oscuro */
+  --co-gray-500: hsl(220, 3%, 50%);   /* Gris medio */
+  --co-gray-300: hsl(220, 5%, 75%);   /* Gris claro */
+  --co-gray-100: hsl(220, 10%, 95%);  /* Gris muy claro casi blanco */
+
+  /* Color de Acento (puedes ajustar el tono y la saturación) */
+  --co-accent: hsl(200, 80%, 50%);   /* Un azul vibrante */
+  --co-accent-light: hsl(200, 80%, 70%); /* Un azul más claro para estados hover/active */
+  --co-accent-dark: hsl(200, 80%, 30%);  /* Un azul más oscuro para contraste */
+
+  --p-m: .6rem;
+  --p-l: .8rem;
+  --p-xl: 1rem;
+}
+
+:root[data-scheme="light"] {
+  --co-primary-10: var(--co-gray-100);   /* Fondo principal claro */
+  --co-primary-20: var(--co-gray-300);   /* Elementos de fondo secundarios (tarjetas, secciones) */
+  --co-primary-30: var(--co-gray-100);
+  --co-text-10: var(--co-gray-900);     /* Texto principal oscuro */
+  --co-text-20: var(--co-gray-700);     /* Texto secundario/descriptivo */
+  --co-border: var(--co-gray-500);     /* Bordes y líneas divisorias */
+  --co-highlight: var(--co-accent);     /* Color de acento principal (botones, enlaces) */
+  --co-highlight-light: var(--co-accent-light); /* Color de acento para hover/active */
+}
+
+:root[data-scheme="dark"] {
+  --co-primary-10: var(--co-gray-900);   /* Fondo principal oscuro */
+  --co-primary-20: var(--co-gray-700);   /* Elementos de fondo secundarios */
+  --co-primary-30: var(--co-gray-700);
+  --co-text-10: var(--co-gray-100);     /* Texto principal claro */
+  --co-text-20: var(--co-gray-300);     /* Texto secundario/descriptivo */
+  --co-border: var(--co-gray-500);     /* Bordes y líneas divisorias */
+  --co-highlight: var(--co-accent);     /* Color de acento principal */
+  --co-highlight-light: var(--co-accent-light); /* Color de acento para hover/active */
+}
+
+$index-10: 10;
+$index-20: 20;
+$index-30: 30;
