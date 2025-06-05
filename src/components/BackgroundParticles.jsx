@@ -15,16 +15,16 @@ export default function BackgroundParticles () {
     })
   }, [])
   console.log(`Loading particles with ${theme} theme...`)
-  const particlesLoaded = container => {
-    // console.log(container)
-  }
+  // const particlesLoaded = container => {
+  //   // console.log(container)
+  // }
   const options = useMemo(getConfigParticles(theme), [theme])
 
   if (!init) return <></>
   return (
     <Particles
       id='tsparticles'
-      particlesLoaded={particlesLoaded}
+      // particlesLoaded={particlesLoaded}
       options={options}
     />
   )

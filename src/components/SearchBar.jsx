@@ -1,23 +1,11 @@
-import { useState, useEffect } from 'react'
-import { LANG_QUERY } from '../config/constants.js'
+import { useState } from 'react'
 import Results from './Results.jsx'
 import IconSearch from './Icons/IconSearch.jsx'
+import { useQuery } from '../hooks/useQuery.js'
 
 export default function SearchBar ({ placeholder }) {
-  const [isFocus, setIsFocus] = useState(false)
-  const [results, setResults] = useState([])
-  const [query, setQuery] = useState('')
-  const hasResults = !(results.length === 0 && query !== '')
-  useEffect(() => {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=ad42e8664bda3dbd31a5a27424023da8&query=${query}&include_adult=true&language=${LANG_QUERY}&page=1`
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        const { results } = data
-        setResults(results.splice(0, 4))
-      })
-      .catch(err => console.error(err))
-  }, [query])
+  const [hasFocus, setHasFocus] = useState(false)
+  const { query, setQuery, results } = useQuery()
 
   return (
     <div className={`searchBar ${query === '' ? '' : 'resultsDisplayed'}`}>
@@ -27,14 +15,11 @@ export default function SearchBar ({ placeholder }) {
         type='search'
         placeholder={placeholder}
         onInput={e => setQuery(e.target.value)}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => {
-          setQuery('')
-          setIsFocus(false)
-        }}
+        onFocus={() => setHasFocus(true)}
+        onBlur={() => (setQuery(''), setHasFocus(false))}
       />
       <IconSearch className='searchBar__icon' />
-      {isFocus && (
+      {hasFocus && (
         <button
           className='searchBar__btn'
           onClick={() => setQuery('')}
@@ -42,7 +27,7 @@ export default function SearchBar ({ placeholder }) {
           ×
         </button>
       )}
-      <Results resultsList={results} hasResults={hasResults} />
+      {query && <Results results={results} />}
     </div>
   )
 }

@@ -10,3 +10,8 @@ export function clamp ({
   if (value + step < min) return min
   if (value + step > max) return max
 }
+
+export function getYear (date) {
+  if (date === '') return '-'
+  return date.slice(0, 4)
+}

@@ -1,7 +1,7 @@
-import LOGO70x70 from '../assets/logo70x70.jpg'
-import ToggleButton from './ToggleButton.jsx'
 import { useContext } from 'react'
 import { ThemeContext } from '../contexts/theme'
+import LOGO70x70 from '../assets/logo70x70.jpg'
+import ToggleButton from './ToggleButton.jsx'
 
 export default function Header () {
   const { setLightTheme, setDarkTheme } = useContext(ThemeContext)

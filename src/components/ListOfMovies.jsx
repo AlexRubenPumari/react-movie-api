@@ -1,6 +1,6 @@
 import Poster from './Poster.jsx'
 
-export default function PosterContainer ({ movies }) {
+export default function ListOfMovies ({ movies }) {
   return (
     <>
       <h3 className='posterContainer__title'>Te podría interesar</h3>

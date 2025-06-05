@@ -2,7 +2,7 @@ import '../styles/App.css'
 import { useMovies } from '../hooks/useMovies'
 import { ThemeProvider } from '../contexts/theme'
 import Header from './Header'
-import PosterContainer from './PosterContainer'
+import ListOfMovies from './ListOfMovies'
 import PageManager from './PageManager'
 import SearchBar from './SearchBar'
 import BackgroundParticles from './BackgroundParticles'
@@ -31,7 +31,7 @@ function HomePage () {
           MIN={1}
           MAX={50}
         />
-        <PosterContainer movies={popularMovies} />
+        <ListOfMovies movies={popularMovies} />
         <PageManager
           page={currentPage}
           onPrevious={() => setCurrentPage(currentPage - 1)}
