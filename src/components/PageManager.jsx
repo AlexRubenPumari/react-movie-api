@@ -1,29 +1,27 @@
 import { useState, useEffect } from 'react'
+import { clamp } from '../logic/utils'
 
-export default function PageManager ({ page, updatePage }) {
-  function changePage (cant) {
-    if (page + cant <= 0) return
-    updatePage(page + cant)
-  }
-  function handleBlur (e) {
-    const newPage = parseInt(e.target.value)
-    if (!isNaN(newPage) &&
-        newPage >= 1 &&
-        newPage <= 50
-    ) {
-      updatePage(newPage)
-    } else {
-      setValue(page)
+export default function PageManager ({
+  page,
+  onPrevious,
+  onNext,
+  onBlur,
+  MIN,
+  MAX
+}) {
+  const handleBlur = e => {
+    const page = parseInt(value)
+    if (page < MIN || page > MAX) {
+      setValue(clamp({ value: page, min: MIN, max: MAX }))
     }
+    onBlur(e)
   }
-  function handleKeyUp (e) {
-    if (e.key === 'Enter') e.target.blur()
-  }
-  function handleOnChange (e) {
+  const handleKeyUp = e => { e.key === 'Enter' && e.target.blur() }
+  const handleOnChange = e => {
     const newPage = e.target.value
-    if (!isNaN(newPage) && !/[eE.,\-+\s]/.test(newPage)) {
-      setValue(newPage)
-    }
+    if (isNaN(newPage) || /[eE.,\-+\s]/.test(newPage)) return
+
+    setValue(newPage)
   }
   const [value, setValue] = useState(page)
   useEffect(() => {
@@ -35,28 +33,18 @@ export default function PageManager ({ page, updatePage }) {
         <span>Página</span>
         <input
           className='pageManager__input'
-          min={1}
-          max={50}
           maxLength={2}
           value={value}
           onBlur={handleBlur}
           onKeyUp={handleKeyUp}
           onInput={handleOnChange}
         />
-        <span>de 50</span>
+        <span>de {MAX}</span>
       </div>
-      <button
-        className='btnCta'
-        onClick={() => changePage(-1)}
-        disabled={page === 1}
-      >
+      <button className='btnCta' onClick={onPrevious} disabled={page === 1}>
         Anterior
       </button>
-      <button
-        className='btnCta'
-        onClick={() => changePage(1)}
-        disabled={page === 50}
-      >
+      <button className='btnCta' onClick={onNext} disabled={page === 50}>
         Siguiente
       </button>
     </section>

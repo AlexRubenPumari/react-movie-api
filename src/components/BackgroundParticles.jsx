@@ -14,6 +14,7 @@ export default function BackgroundParticles () {
       setInit(true)
     })
   }, [])
+  console.log(`Loading particles with ${theme} theme...`)
   const particlesLoaded = container => {
     // console.log(container)
   }

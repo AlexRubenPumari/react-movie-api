@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import getMovies from '../services/movies'
+import { clamp } from '../logic/utils'
 
 export function useMovies () {
   const [currentPage, setCurrentPage] = useState(1)
@@ -9,6 +10,8 @@ export function useMovies () {
       .then(movies => setPopularMovies(movies))
       .catch(error => console.log(error))
   }, [currentPage])
-
-  return { currentPage, popularMovies, setCurrentPage }
+  const setPage = newPage => {
+    setCurrentPage(clamp({ value: parseInt(newPage), min: 1, max: 50 }))
+  }
+  return { currentPage, popularMovies, setCurrentPage: setPage }
 }

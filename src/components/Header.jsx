@@ -1,4 +1,4 @@
-import LOGO70x70 from '../assets/logo_70x70.jpg'
+import LOGO70x70 from '../assets/logo70x70.jpg'
 import ToggleButton from './ToggleButton.jsx'
 import { useContext } from 'react'
 import { ThemeContext } from '../contexts/theme'
