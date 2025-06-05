@@ -14,8 +14,8 @@ export default function Header () {
       <div className='header__btn'>
         <label>Modo oscuro</label>
         <ToggleButton
-          callbackOn={() => setDarkTheme(true)}
-          callbackOff={() => setLightTheme(false)}
+          callbackOn={() => setDarkTheme()}
+          callbackOff={() => setLightTheme()}
         />
       </div>
     </header>
