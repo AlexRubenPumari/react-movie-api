@@ -369,7 +369,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 88vw;
+  justify-content: space-between;
+  gap: 1em;
+  width: 88vw;
+  height: 90vh;
   background-color: var(--co-primary-10);
   border-radius: var(--rounded-sm);
   padding: 2em 1.2em;
@@ -384,7 +387,8 @@ body {
   background-color: var(--co-overlay);
 }
 .Modal__content {
-  margin-bottom: 1.5em;
+  height: calc(100% - 4.4em);
+  flex-grow: 1;
 }
 
 .Movie {
@@ -409,8 +413,11 @@ body {
   align-items: center;
   gap: 1em;
 }
+.ModalMovie__title {
+  text-align: center;
+}
 .ModalMovie__desc {
-  max-height: 8em;
+  flex-grow: 1;
 }
 
 .posterContainer {

@@ -4,7 +4,10 @@
   align-items: center;
   gap: 1em;
 
+  &__title {
+    text-align: center;
+  }
   &__desc {
-    max-height: 8em;
+    flex-grow: 1;
   }
 }
