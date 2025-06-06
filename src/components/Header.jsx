@@ -1,5 +1,7 @@
 import { useContext } from 'react'
 import { ThemeContext } from '../contexts/theme'
+import { getThemePreference } from '../logic/theme'
+import { THEME } from '../config/constants'
 import LOGO70x70 from '../assets/logo70x70.jpg'
 import ToggleButton from './ToggleButton.jsx'
 
@@ -14,6 +16,7 @@ export default function Header () {
       <div className='header__btn'>
         <label>Modo oscuro</label>
         <ToggleButton
+          initialToggle={() => getThemePreference() === THEME.DARK}
           callbackOn={() => setDarkTheme()}
           callbackOff={() => setLightTheme()}
         />
