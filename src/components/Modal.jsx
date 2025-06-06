@@ -3,9 +3,9 @@ import { useEffect } from 'react'
 export default function Modal ({ children, className = '', onClose }) {
   const modalClassName = `Modal__content ${className}`
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflowY = 'hidden'
 
-    return () => { document.body.style.overflow = 'auto' }
+    return () => { document.body.style.overflowY = 'auto' }
   }, [])
   return (
     <div
