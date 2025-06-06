@@ -97,6 +97,7 @@ svg {
 body {
   min-height:100vh;
   font-size: 100%;
+  scrollbar-gutter: stable;
   font-family: Verdana, Tahoma, sans-serif;
   color: var(--co-text-10);
   background-color: var(--co-primary-10);

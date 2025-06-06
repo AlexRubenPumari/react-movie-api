@@ -1,0 +1,10 @@
+.ModalMovie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  &__desc {
+    max-height: 8em;
+  }
+}

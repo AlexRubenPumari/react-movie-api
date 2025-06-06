@@ -1,20 +1,12 @@
-import Poster from './Poster.jsx'
+import Movie from './Movie'
 
 export default function ListOfMovies ({ movies }) {
   return (
     <>
       <h3 className='posterContainer__title'>Te podría interesar</h3>
-      <div className='posterContainer'>
-        {
-          movies.map(movie => (
-            <Poster
-              key={movie.id}
-              title={movie.title}
-              pathImg={movie.poster_path}
-            />
-          ))
-        }
-      </div>
+      <ul className='posterContainer'>
+        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
+      </ul>
     </>
   )
 }

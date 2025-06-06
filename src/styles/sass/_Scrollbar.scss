@@ -1,4 +1,6 @@
 .Scrollbar {
+  overflow-y: auto;
+
   &::-webkit-scrollbar {
     width: 12px; /* Ancho del scrollbar vertical */
     height: 12px; /* Altura del scrollbar horizontal */

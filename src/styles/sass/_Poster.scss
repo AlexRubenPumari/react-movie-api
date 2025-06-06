@@ -1,24 +1,7 @@
-.poster {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-
-  @media (hover: hover) {
-    &:hover .poster__imgContainer {
-      transform: scale(1.1);
-    }
-  }
-
-  &__title {
-    text-align: center;
-  }
-
-  &__imgContainer {
-    position: relative;
-    margin-bottom: 0.8rem;
-    transition: 200ms transform;
-  }
+.Poster {
+  position: relative;
+  margin-bottom: 0.8rem;
+  transition: 200ms transform;
 
   &__shadow {
     height: 4em;
@@ -35,8 +18,16 @@
   }
 
   &__img {
-    width: 10rem;
     aspect-ratio: 2/3;
-    border-radius: var(--rounded-sm);
+    &--sm {
+      width: 10rem;
+    }
+    &--md {
+      width: 10rem;
+    }
+    &--rounded-md {
+      border-radius: var(--rounded-sm);
+    }
   }
 }
+

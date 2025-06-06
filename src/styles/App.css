@@ -120,6 +120,7 @@ svg {
 body {
   min-height: 100vh;
   font-size: 100%;
+  scrollbar-gutter: stable;
   font-family: Verdana, Tahoma, sans-serif;
   color: var(--co-text-10);
   background-color: var(--co-primary-10);
@@ -137,40 +138,43 @@ body {
 :root {
   --rounded-sm: .4em;
   --rounded-xl: 1.3em;
-  --co-gray-900: hsl(220, 5%, 15%); /* Gris oscuro casi negro */
-  --co-gray-700: hsl(220, 4%, 30%); /* Gris medio oscuro */
-  --co-gray-500: hsl(220, 3%, 50%); /* Gris medio */
-  --co-gray-300: hsl(220, 5%, 75%); /* Gris claro */
-  --co-gray-100: hsl(220, 10%, 95%); /* Gris muy claro casi blanco */
-  /* Color de Acento (puedes ajustar el tono y la saturación) */
-  --co-accent: hsl(200, 80%, 50%); /* Un azul vibrante */
-  --co-accent-light: hsl(200, 80%, 70%); /* Un azul más claro para estados hover/active */
-  --co-accent-dark: hsl(200, 80%, 30%); /* Un azul más oscuro para contraste */
+  --co-gray-900: hsl(220, 5%, 15%);
+  --co-gray-700: hsl(220, 4%, 30%);
+  --co-gray-500: hsl(220, 3%, 50%);
+  --co-gray-300: hsl(220, 5%, 75%);
+  --co-gray-100: hsl(220, 10%, 95%);
+  --co-accent: hsl(200, 80%, 50%);
+  --co-accent-light: hsl(200, 80%, 70%);
+  --co-accent-dark: hsl(200, 80%, 30%);
+  --co-overlay-light: hsl(0, 0%, 0%, .4);
+  --co-overlay-dark: hsl(0, 50%, 100%, .3);
   --p-m: .6rem;
   --p-l: .8rem;
   --p-xl: 1rem;
 }
 
 :root[data-scheme=light] {
-  --co-primary-10: var(--co-gray-100); /* Fondo principal claro */
-  --co-primary-20: var(--co-gray-300); /* Elementos de fondo secundarios (tarjetas, secciones) */
+  --co-primary-10: var(--co-gray-100);
+  --co-primary-20: var(--co-gray-300);
   --co-primary-30: var(--co-gray-100);
-  --co-text-10: var(--co-gray-900); /* Texto principal oscuro */
-  --co-text-20: var(--co-gray-700); /* Texto secundario/descriptivo */
-  --co-border: var(--co-gray-500); /* Bordes y líneas divisorias */
-  --co-highlight: var(--co-accent); /* Color de acento principal (botones, enlaces) */
-  --co-highlight-light: var(--co-accent-light); /* Color de acento para hover/active */
+  --co-text-10: var(--co-gray-900);
+  --co-text-20: var(--co-gray-700);
+  --co-border: var(--co-gray-500);
+  --co-highlight: var(--co-accent);
+  --co-highlight-light: var(--co-accent-light);
+  --co-overlay: var(--co-overlay-light);
 }
 
 :root[data-scheme=dark] {
-  --co-primary-10: var(--co-gray-900); /* Fondo principal oscuro */
-  --co-primary-20: var(--co-gray-700); /* Elementos de fondo secundarios */
+  --co-primary-10: var(--co-gray-900);
+  --co-primary-20: var(--co-gray-700);
   --co-primary-30: var(--co-gray-700);
-  --co-text-10: var(--co-gray-100); /* Texto principal claro */
-  --co-text-20: var(--co-gray-300); /* Texto secundario/descriptivo */
-  --co-border: var(--co-gray-500); /* Bordes y líneas divisorias */
-  --co-highlight: var(--co-accent); /* Color de acento principal */
-  --co-highlight-light: var(--co-accent-light); /* Color de acento para hover/active */
+  --co-text-10: var(--co-gray-100);
+  --co-text-20: var(--co-gray-300);
+  --co-border: var(--co-gray-500);
+  --co-highlight: var(--co-accent);
+  --co-highlight-light: var(--co-accent-light);
+  --co-overlay: var(--co-overlay-dark);
 }
 
 .header {
@@ -191,26 +195,12 @@ body {
   gap: 1rem;
 }
 
-.poster {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-@media (hover: hover) {
-  .poster:hover .poster__imgContainer {
-    transform: scale(1.1);
-  }
-}
-.poster__title {
-  text-align: center;
-}
-.poster__imgContainer {
+.Poster {
   position: relative;
   margin-bottom: 0.8rem;
   transition: 200ms transform;
 }
-.poster__shadow {
+.Poster__shadow {
   height: 4em;
   position: absolute;
   left: -1px;
@@ -218,9 +208,16 @@ body {
   bottom: -1px;
   background: linear-gradient(to top, var(--co-primary-10) 0%, var(--co-primary-10) 20%, transparent 100%);
 }
-.poster__img {
-  width: 10rem;
+.Poster__img {
   aspect-ratio: 2/3;
+}
+.Poster__img--sm {
+  width: 10rem;
+}
+.Poster__img--md {
+  width: 10rem;
+}
+.Poster__img--rounded-md {
   border-radius: var(--rounded-sm);
 }
 
@@ -349,6 +346,7 @@ body {
 }
 
 .Scrollbar {
+  overflow-y: auto;
   /* Estado hover del pulgar del scrollbar */
 }
 .Scrollbar::-webkit-scrollbar {
@@ -365,6 +363,54 @@ body {
 }
 .Scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: var(--co-text-10); /* Color del pulgar al pasar el ratón */
+}
+
+.Modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 88vw;
+  background-color: var(--co-primary-10);
+  border-radius: var(--rounded-sm);
+  padding: 2em 1.2em;
+}
+.Modal__overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background-color: var(--co-overlay);
+}
+.Modal__content {
+  margin-bottom: 1.5em;
+}
+
+.Movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .Movie:hover .Poster {
+    transform: scale(1.1);
+  }
+}
+.Movie__title {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.ModalMovie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.ModalMovie__desc {
+  max-height: 8em;
 }
 
 .posterContainer {

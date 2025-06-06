@@ -1,5 +1,4 @@
 import Result from './Result.jsx'
-import { getYear } from '../logic/utils.js'
 
 export default function ListOfResults ({ results, isLoading }) {
   const hasResults = results?.length >= 1 && !isLoading
@@ -14,8 +13,8 @@ export default function ListOfResults ({ results, isLoading }) {
 }
 function Results ({ results }) {
   return results.map(result => (
-    <Result key={result.id} pathImg={result.poster_path} hasImg>
-      {`${result.title} (${getYear(result.release_date)})`}
+    <Result key={result.id} result={result}>
+      {`${result.title} (${result.year})`}
     </Result>
   ))
 }

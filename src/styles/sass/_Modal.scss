@@ -1,0 +1,28 @@
+@use '../config/config' as c;
+
+.Modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 88vw;
+
+  background-color: var(--co-primary-10);
+  border-radius: var(--rounded-sm);
+  padding: 2em 1.2em;
+  
+  &__overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    inset: 0;
+    z-index: c.$index-20;
+
+    background-color: var(--co-overlay);
+  }
+  &__content {
+    margin-bottom: 1.5em;
+  }
+}
